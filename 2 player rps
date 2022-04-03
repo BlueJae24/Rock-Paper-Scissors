@@ -1,0 +1,83 @@
+playerA = 0
+playerB = 0
+gameStatus = True
+wePlay = True
+while wePlay == True:
+    while gameStatus == True:
+        if playerA or playerB == 3:
+            gameStatus = False
+            if playerA == 3:
+                playerWin = playerA
+            else:
+                playerWin = playerB
+        else:
+            print('player one, state your weapon')
+            aMove = input()
+            print('player two, state your weapon')
+            bMove = input()
+            if aMove in ('rock', 'paper', 'scissors'):
+                if aMove == 'rock':
+                    if bMove == 'rock':
+                        print('its a tie!')
+                        print(f'player one : {playerA} \nplayerTwo : {playerB}')
+                        pass
+                    elif bMove == 'paper':
+                        print('you lost, player one!')
+                        playerB += 1
+                        print(f'player one : {playerA} \nplayerTwo : {playerB}')
+                        pass
+                    else:
+                        print('player one wins!')
+                        playerA += 1
+                        print(f'player one : {playerA} \nplayerTwo : {playerB}')
+                        pass
+                if aMove == 'paper':
+                    if bMove == 'rock':
+                        print('player one wins!')
+                        playerA += 1
+                        print(f'player one : {playerA} \nplayerTwo : {playerB}')
+                        pass
+                    elif bMove == 'paper':
+                        print('it is a tie!')
+                        print(f'player one : {playerA} \nplayerTwo : {playerB}')
+                        pass
+                    else:
+                        print('too bad, player two wins!')
+                        playerB += 1
+                        print(f'player one : {playerA} \nplayer two : {playerB}')
+                        pass
+                if aMove == 'scissors':
+                    if bMove == 'paper':
+                        print('yippee! thats a win for player one')
+                        print(f'player one : {playerA} \nplayer two : {playerB}')
+                        pass
+                    elif bMove =='rock':
+                        print('ok player two!')
+                        print(f'player one : {playerA} \nplayer two : {playerB}')
+                        pass
+                    else:
+                        print('its a tie!')
+                        print(f'player one : {playerA} \nplayer two : {playerB}')
+                        pass
+            else:
+                print('idk about that one')
+                pass
+    if gameStatus == False:
+        print(f'{playerWin} is the winner! play again?')
+        loop = 0
+        while loop == 0:
+            playAgain = input()
+            if playAgain == 'yes':
+                print('here we go!')
+                gameStatus = True
+                loop = 1
+                playerA = 0
+                playerB = 0
+                pass
+            if playAgain == 'no':
+                print('thanks for playing!')
+                loop = 1
+                wePlay = False
+                break
+            else:
+                pass
